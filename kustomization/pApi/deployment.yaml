@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: publish-api-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: publish-api
+  template:
+    metadata:
+      labels:
+        app: publish-api
+    spec:
+      containers : 
+        - name : publish-api-app
+          image : gcr.io/lateral-rider-383313/IMAGE_NAME_PUBLISH_API:TAG
+          imagePullPolicy: Always
+        

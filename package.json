@@ -1,0 +1,60 @@
+{
+	"name": "pormotionengine",
+	"version": "1.0.0",
+	"description": "Powred by myc ",
+	"main": "src/index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"db": "ts-node src/persistence/services/test.ts",
+		"mApi": "ts-node src/mobileApi/index.ts",
+		"mApiProduction": "tsc && node build/mobileApi/index.js",
+		"wApi": "ts-node src/webApi/index.ts",
+		"wApiProduction": "tsc && node build/webApi/index.js",
+		"pApi": "ts-node src/publish/index.ts",
+		"pApiProduction": "node build/publish/index.js",
+		"bulk": "tsc && node build/persistence/services/vouchersServices/bulkVoucherAddSerivces.js",
+		"reward": "tsc && node  build/persistence/services/rewardServices/addRewardServices.js",
+		"voucher": "ts-node src/persistence/services/vouchersServices/getVoucherServices.ts",
+		"validate": "tsc && node build/persistence/services/validateServices/validateDiscountVoucherService.js",
+		"publish": "ts-node src/persistence/services/publishServices/addPublishServices.ts",
+		"dashboard": "ts-node src/persistence/services/dashboardServices/dashboardServices.ts",
+		"giftRedeem" : "ts-node src/persistence/services/redemptionServices/giftVoucherRedemptionServices.ts",
+		"discountRedeem" : "ts-node src/persistence/services/redemptionServices/discountVoucherRedemptionServices.ts",
+		"build": "tsc"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/kavaldeepMyc/PormotionEngine.git"
+	},
+	"author": "code@myc.com.mt",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/kavaldeepMyc/PormotionEngine/issues"
+	},
+	"homepage": "https://github.com/kavaldeepMyc/PormotionEngine#readme",
+	"dependencies": {
+		"@types/jsonwebtoken": "^9.0.2",
+		"@types/passport": "^1.0.12",
+		"@types/passport-jwt": "^3.0.8",
+		"body-parser": "^1.20.2",
+		"cors": "^2.8.5",
+		"express": "^4.18.2",
+		"jsonwebtoken": "^9.0.0",
+		"loadash": "^1.0.0",
+		"lodash": "^4.17.21",
+		"mongoose": "^7.0.3",
+		"passport": "^0.6.0",
+		"passport-jwt": "^4.0.1",
+		"rxjs": "^7.8.0"
+	},
+	"devDependencies": {
+		"@types/express": "^4.17.17",
+		"@types/jest": "^29.5.1",
+		"@types/lodash": "^4.14.194",
+		"@types/mongoose": "^5.11.97",
+		"@types/node": "^18.15.11",
+		"jest": "^29.5.0",
+		"ts-node": "^10.9.1",
+		"typescript": "^5.0.4"
+	}
+}

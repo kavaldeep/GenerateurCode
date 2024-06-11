@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pormotion-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pormotion
+  template:
+    metadata:
+      labels:
+        app: pormotion
+    spec:
+      containers : 
+        - name : pormotion-app
+          image : gcr.io/lateral-rider-383313/IMAGE_NAME:TAG
+          imagePullPolicy: Always
+        

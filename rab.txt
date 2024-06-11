@@ -1,0 +1,89 @@
+class VoucherService{
+
+    private userRedeemVoucherSubject = new Subject<IVoucher>();
+    public userRedeemVoucher$ = this.userRedeemVoucherSubject.asObservable();
+
+    private getVoucherByCodeSubject = new Subject<IVoucher>();
+    public getVoucherByCode$ = this.getVoucherByCodeSubject.asObservable();
+
+    getVoucherByCode(code : string) : (Observable<IVoucher[] | null>) {
+        return VoucherRepository.getVoucherByCode(code).pipe(
+            tap((voucher) => {
+                //@ts-ignore
+                this.getVoucherByCodeSubject.next(voucher);
+            })
+        )
+    }
+
+}
+
+const voucherService = new VoucherService();
+
+export default voucherService;
+
+
+import { VoucherRepository } from "../../repositories/voucherRepos";
+import { RedemptionRepository } from "../../repositories/redemptionRepos";
+import { IVoucher } from "../../models/Voucher";
+
+
+export function redeemVoucher(
+    code : string,
+){
+        
+}
+
+export function isVoucherVaild(code : string) {
+    VoucherRepository.getVoucherByCode(code).subscribe({
+        next: (voucher )=> {
+            if (voucher) {
+                if (voucher.length == 0 )
+                    {   
+                        console.log("Voucher is not valid");
+                        return false;
+                    }
+                if(voucher.length > 0)
+                {
+                    if (voucher[0].active) {
+                            if (voucher[0].expiration_date) {
+                                if (voucher[0].expiration_date > new Date()) {
+                                    console.log("Voucher is valid");
+                                    return true;
+                                }
+                            } else {
+                                console.log("Voucher is valid");
+                                return true;
+                            }
+                        }
+     
+                    }
+                } 
+        },
+        error: (error) => {
+            console.log(error);
+            return false;
+        }
+    })    
+}
+Idee pour ameliorer les observer : 
+Mettre des parametres optionelles 
+
+ex 
+
+function observer ( x ? ) {
+	observer.next("Done")
+}
+
+
+observer(10).subscribe(
+	 next : ( val ) => {
+		console.log( val )
+	 } 
+)
+
+
+observer().subscribe(
+	next : ( val ) => {
+		console.log( val )
+	}
+)
