@@ -3,8 +3,6 @@ import {IVoucher, OptionalIVoucher, VoucherModel} from "../../models/Voucher";
 import  { ILoyaltyVoucher , LoyaltyVoucherModel } from "../../models/voucherModels/LoyaltyVoucher";
 import { CampaignModel } from "../../models/Campaing";
 import voucherServices from "./voucherServices";
-import { connectToDatabase } from "../db";
-import {fieldQuery, operatorQuery} from "../../mongoAggregation/PipelineStagePayloadBuilder";
 import {from} from "rxjs";
 
 export interface IVoucherBulkResponse  {

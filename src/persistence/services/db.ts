@@ -2,8 +2,8 @@ import { Observable } from "rxjs";
 import mongoose, { connect, Connection, model, Schema, Document } from 'mongoose';
 
 
-//const MONGODB_URI  = "mongodb+srv://myc:myc@kavaldeepcluster.r6cqmlx.mongodb.net/?retryWrites=true&w=majority";
-const MONGODB_URI = "mongodb://localhost:27017/vouchers";
+//export const MONGODB_URI = "mongodb://localhost:27017/vouchers";
+export const MONGODB_URI = "mongodb://localhost:27017/vouchers?directConnection=true&serverSelectionTimeoutMS=2000";
 const COLLECTION_NAME = 'vouchers';
 
 export const connectToDatabase = (): Observable<Connection> => {
