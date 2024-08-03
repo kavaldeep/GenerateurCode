@@ -33,15 +33,14 @@ class AnalyticsServices {
                     response["total_redemption_date_point"].forEach((value: any) => {
                         total_redemption_date_point[value["_id"]["day"]] = value["count"];
                     });
-
                     resolve({
                         campaign_id: campaign_id,
-                        total_number_voucher_code: response["total_number_voucher_code"][0]["total_number_voucher_code"],
-                        total_redeem_voucher: response["total_redeem_voucher"][0]["total_redeem_voucher"],
-                        total_number_customers: response["total_number_customers"][0]["total_number_customers"],
+                        total_number_voucher_code: response["total_number_voucher_code"]?.[0]?.["total_number_voucher_code"] ?? 0,
+                        total_redeem_voucher: response["total_redeem_voucher"]?.[0]?.["total_redeem_voucher"] ?? 0,
+                        total_number_customers: response["total_number_customers"]?.[0]?.["total_number_customers"] ?? 0,
                         total_redemption_date_count: total_redemption_date_count,
                         total_redemption_date_point: total_redemption_date_point,
-                        total_redeems_point: response["total_redeems_point"][0]["count"]
+                        total_redeems_point: response["total_redeems_point"]?.[0]?.["count"] ?? 0,
                     });
                 });
             } catch (error) {

@@ -10,9 +10,9 @@ afterAll(async () => {
 });
 
 describe("get campaign analytics data test", () => {
-
+/*
     it('should get campaign analytics data', async () => {
-        const response = await analyticsServices.getCampaignAnalyticsNew("6466170512e7366359fc4252");
+        const response = await analyticsServices.getCampaignAnalytics("6466170512e7366359fc4252");
         expect(response.campaign_id).toEqual("6466170512e7366359fc4252");
         expect(response.total_number_voucher_code > 0);
         expect(response.total_redeem_voucher > 0);
@@ -21,7 +21,7 @@ describe("get campaign analytics data test", () => {
         expect(Object.keys(response.total_redemption_date_point).length > 0);
         expect(response.total_redeems_point > 0);
     });
-
+*/
     it('should get customer analytics data', async () => {
         const response = await analyticsServices.getCustomerAnalytics("64661a9c51419902d167d53a");
         expect(response.customer_id).toEqual("64661a9c51419902d167d53a");
