@@ -8,7 +8,7 @@
 		"mApi": "ts-node src/mobileApi/index.ts",
 		"mApiProduction": "tsc && node build/mobileApi/index.js",
 		"wApi": "ts-node src/webApi/index.ts",
-		"wApiProduction": "tsc && node build/webApi/index.js",
+		"wApiProduction": "tsc && node build/webApi/index.js", 
 		"pApi": "ts-node src/publish/index.ts",
 		"pApiProduction": "node build/publish/index.js",
 		"bulk": "tsc && node build/persistence/services/vouchersServices/bulkVoucherAddSerivces.js",
@@ -17,16 +17,15 @@
 		"validate": "tsc && node build/persistence/services/validateServices/validateDiscountVoucherService.js",
 		"publish": "ts-node src/persistence/services/publishServices/addPublishServices.ts",
 		"dashboard": "ts-node src/persistence/services/dashboardServices/dashboardServices.ts",
-		"giftRedeem" : "ts-node src/persistence/services/redemptionServices/giftVoucherRedemptionServices.ts",
-		"discountRedeem" : "ts-node src/persistence/services/redemptionServices/discountVoucherRedemptionServices.ts",
+		"giftRedeem": "ts-node src/persistence/services/redemptionServices/giftVoucherRedemptionServices.ts",
+		"discountRedeem": "ts-node src/persistence/services/redemptionServices/discountVoucherRedemptionServices.ts",
 		"build": "tsc"
 	},
 	"repository": {
 		"type": "git"
 	},
 	"license": "ISC",
-	"bugs": {
-	},
+	"bugs": {},
 	"dependencies": {
 		"@types/jsonwebtoken": "^9.0.2",
 		"@types/passport": "^1.0.12",
@@ -40,7 +39,8 @@
 		"mongoose": "^7.0.3",
 		"passport": "^0.6.0",
 		"passport-jwt": "^4.0.1",
-		"rxjs": "^7.8.0"
+		"rxjs": "^7.8.0",
+		"yargs": "^17.7.2"
 	},
 	"devDependencies": {
 		"@types/express": "^4.17.17",

@@ -6,6 +6,7 @@ services:
     command: ["--replSet", "rs0", "--bind_ip_all", "--port", "27017"]
     ports:
       - 27017:27017
+    container_name: mongo1
     extra_hosts:
       - "host.docker.internal:host-gateway"
     healthcheck:
@@ -13,19 +14,31 @@ services:
       interval: 5s
       timeout: 30s
       start_period: 0s
-    #  start_interval: 1s
       retries: 30
     volumes:
       - "mongo1_data:/data/db"
       - "mongo1_config:/data/configdb"
+    networks:
+      - generateur
 
-  wapi : 
-    build : 
-      context : ../
-      dockerfile : DockerfilewApi
-    ports : 
-      - "3001:3001"
-    
+  wapi:
+    build:
+      context: ../
+      dockerfile: DockerfilewApi
+    ports:
+      - "3000:3000"
+    container_name: wapi
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3001/"]
+      interval: 5s
+      timeout: 30s
+      retries: 3
+    networks:
+      - generateur
+
+networks:
+  generateur:
+    driver: bridge
 
 volumes:
   mongo1_data:
